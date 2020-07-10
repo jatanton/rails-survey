@@ -3,10 +3,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '2.6.6'
 
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'pg'
+#gem 'pg'
+gem 'mysql2'
 gem 'puma', '~> 3.12'
 gem 'rails', '~> 6.0.0'
 gem 'rapidfire'

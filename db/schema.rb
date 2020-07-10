@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_09_01_102811) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "rapidfire_answers", force: :cascade do |t|
+  create_table "rapidfire_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "attempt_id"
     t.bigint "question_id"
     t.text "answer_text"
@@ -25,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_09_01_102811) do
     t.index ["question_id"], name: "index_rapidfire_answers_on_question_id"
   end
 
-  create_table "rapidfire_attempts", force: :cascade do |t|
+  create_table "rapidfire_attempts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "survey_id"
     t.string "user_type"
     t.bigint "user_id"
@@ -36,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_09_01_102811) do
     t.index ["user_type", "user_id"], name: "index_rapidfire_attempts_on_user_type_and_user_id"
   end
 
-  create_table "rapidfire_questions", force: :cascade do |t|
+  create_table "rapidfire_questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "survey_id"
     t.string "type"
     t.string "question_text"
@@ -50,7 +47,7 @@ ActiveRecord::Schema.define(version: 2019_09_01_102811) do
     t.index ["survey_id"], name: "index_rapidfire_questions_on_survey_id"
   end
 
-  create_table "rapidfire_surveys", force: :cascade do |t|
+  create_table "rapidfire_surveys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.text "introduction"
     t.datetime "created_at", precision: 6, null: false
@@ -58,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_09_01_102811) do
     t.text "after_survey_content"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
